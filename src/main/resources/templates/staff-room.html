@@ -16,7 +16,11 @@
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/rent/checkout}" class="btn btn-success">Check Out</a>
+                    <a type="submit" th:href="@{/rent/edit}" class="btn btn-warning">Edit Existing</a>
+                    <a type="submit" th:href="@{/rent/check-in}" class="btn btn-danger">Check In</a>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +32,10 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/add/customer}"  class="btn btn-success">Add</a>
+                    <a type="submit" th:href="@{/edit/customer}"  class="btn btn-warning">Edit</a>
+                </div>
             </div>
         </div>
     </div>
@@ -40,7 +47,11 @@
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/add/film}"  class="btn btn-success">Add</a>
+                    <a type="submit" th:href="@{/edit/film}"  class="btn btn-warning">Edit</a>
+                    <a type="submit" th:href="@{/remove/film}"  class="btn btn-danger">Remove</a>
+                </div>
             </div>
         </div>
     </div>
@@ -52,7 +63,11 @@
         </h2>
         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/add/store}"  class="btn btn-success">Add</a>
+                    <a type="submit" th:href="@{/edit/store}"  class="btn btn-warning">Edit</a>
+                    <a type="submit" th:href="@{/remove/store}"  class="btn btn-danger">Remove</a>
+                </div>
             </div>
         </div>
     </div>
