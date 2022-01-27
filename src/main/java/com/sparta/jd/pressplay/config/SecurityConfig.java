@@ -25,25 +25,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("James").password("{noop}james").authorities("ADMIN"); // {noop} is naughty!
-//        auth.inMemoryAuthentication().withUser("Manish").password("{noop}manish").authorities("USER");
-        auth.jdbcAuthentication()
-                .dataSource(datasource)
-                .usersByUsernameQuery("select user_name,user_password,user_enabled from user_entity where user_name=?")
-                .authoritiesByUsernameQuery("select user_name,user_role from user_entity where user_name=?")
-                .passwordEncoder(encoder);
+        auth.inMemoryAuthentication()
+                .withUser("user").password(encoder.encode("userpass"))
+                .authorities("CUSTOMER");
+        //auth.jdbcAuthentication()
+        //        .dataSource(datasource)
+        //        .usersByUsernameQuery("select email from customer where email=?")
+        //        .passwordEncoder(encoder);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/css/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/rent/*").authenticated()
+                .anyRequest().permitAll()
 
                 .and().formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/", true).permitAll()
 
-                .and().exceptionHandling().accessDeniedPage("/access-denied")
+                .and().exceptionHandling().accessDeniedPage("/error")
                 .and().logout();
     }
 
