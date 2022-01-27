@@ -21,21 +21,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/" th:align="center">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" th:align="center">Link</a>
-                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:align="center">
-                            Dropdown
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:align="center">
+                            Login Menu
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Staff Portal</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about-us">About Us</a>
+                    </li>
                 </ul>
+
                 <form class="d-flex" th:action="@{/film-search}" method="post">
                     <input class="form-control me-2" type="search" placeholder="Search by Name" aria-label="Search" name="filmName" style="color: goldenrod">
                     <button class="btn btn-outline-success" type="submit">Search</button>

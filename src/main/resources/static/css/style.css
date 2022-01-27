@@ -9,6 +9,12 @@ h1, h2 {
     text-transform: uppercase;
 }
 
+h6 {
+    text-align: center;
+    font-family: sans-serif;
+    line-height: 30px;
+}
+
 table, th, td, tr {
     border: 2px solid black;
     margin-left: auto;

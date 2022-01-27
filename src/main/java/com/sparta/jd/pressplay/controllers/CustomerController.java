@@ -18,4 +18,7 @@ public class CustomerController {
     @GetMapping("/error")
     public String goToErrorPage() {return "error";}
 
+    @GetMapping("/about-us")
+    public String goToAboutUs() {return "about-us";}
+
 }
