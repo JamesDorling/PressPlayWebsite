@@ -24,19 +24,19 @@
     **If the mind is the greatest cinema, then we ready to take the ticket of your mind on a journey of discovery**
     - Aouta Time
 </h6>
-
+<h2>Locations</h2>
 <table>
     <thead>
     <tr>
-        <th>Locations</th>
+        <th>Name</th>
+        <th>Opening Times</th>
+        <th>Postcode</th>
     </tr>
     </thead>
-    <tr th:each="film : ${filmData}">
-        <!--        th:text="${film.getTitle()}" th:href="@{/film/{id}(id=${film.getFilmId()})}"-->
-        <td><form><a th:text="${film.getTitle()}" th:href="@{/film/{id}(id=${film.getFilmId()})}"></a></form></td>
-        <td th:text="${film.getDisplayDescription()}"></td>
-        <td th:text="${film.getRating()}"></td>
-        <td th:text="${film.getRentalRate()}"></td>
+    <tr th:each="store : ${locationData}">
+        <td th:text="${store.getLocationName()}"></td>
+        <td th:text="${store.getOpeningTimes()}"></td>
+        <td th:text="${store.getPostCode()}"></td>
     </tr>
 </table>
 <div th:insert="fragments/footer"></div>

@@ -16,14 +16,12 @@
         <th>Film Name:</th>
         <th>Description</th>
         <th>Rating</th>
-        <th>£</th>
     </tr>
     </thead>
     <tr th:each="film : ${searchResults}">
         <td><form><a th:text="${film.getTitle()}" th:href="@{/film/{id}(id=${film.getFilmId()})}"></a></form></td>
         <td th:text="${film.getDisplayDescription()}"></td>
         <td th:text="${film.getRating()}"></td>
-        <td th:text="${film.getRentalRate()}"></td>
     </tr>
 </table>
 <div th:insert="fragments/footer"></div>

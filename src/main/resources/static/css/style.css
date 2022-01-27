@@ -21,6 +21,8 @@ table, th, td, tr {
     margin-right: auto;
     text-align: center;
     font-family: sans-serif;
+    white-space: normal;
+    word-break: break-word;
     //min-font-size: 15px;
 }
 

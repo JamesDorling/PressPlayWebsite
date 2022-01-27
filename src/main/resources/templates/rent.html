@@ -6,11 +6,27 @@
 </head>
 <body>
 <div th:insert="fragments/header"></div>
-
+<h2>Where would you like to rent</h2>
 <div class="film-details" th:object="${filmData}">
     <h1 th:text="*{title}"></h1>
-    <button type="button" class="btn btn-primary" th:action="@{/rent/{id}(id=${id})}">Rent Movie</button>
 </div>
+<h2>From?</h2>
+<h6>(Please select a location)</h6>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Opening Times</th>
+        <th>Postcode</th>
+    </tr>
+    </thead>
+        <tr th:each="store : ${locationData}">
+            <td><form><a th:text="${store.getLocationName()}" th:href="@{/rent-confirmation/{filmId}/{locationID}(filmId=${filmData.getFilmId()}, locationID=${store.getLocation_id()})}"></a></form></td>
+            <td th:text="${store.getOpeningTimes()}"></td>
+            <td th:text="${store.getPostCode()}"></td>
+    </tr>
+</table>
 
 <div th:insert="fragments/footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

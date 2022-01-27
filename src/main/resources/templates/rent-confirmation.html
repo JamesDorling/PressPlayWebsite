@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+
+<h1>Just To Confirm:</h1>
+<div class="film-details" th:object="${filmData}">
+    <h1 th:text="*{title}"></h1>
+    <h6 th:text="*{description}"></h6>
+    <table>
+        <thead>
+        <tr>
+            <th>Film Length:</th>
+            <th>Rating</th>
+            <th>Rental Rate</th>
+            <th>Rental Duration</th>
+            <th>Special Features</th>
+            <th>Languages</th>
+            <th>Replacement Cost</th>
+        </tr>
+        <tr>
+            <td th:text="*{length}"></td>
+            <td th:text="*{rating}"></td>
+            <td th:text="*{rentalRate}"></td>
+            <td th:text="*{rentalDuration}"></td>
+            <td th:text="*{specialFeatures}"></td>
+            <td th:text="*{getLanguage()}"></td>
+            <td th:text="*{replacementCost}"></td>
+        </tr>
+    </table>
+</div>
+<h1>Rented From:</h1>
+<div class="film-details" th:object="${locationData}">
+    <h6 th:text="*{locationName}"></h6>
+    <h6 th:text="*{postCode}"></h6>
+    <h6>Opening Times:</h6>
+    <h6 th:text="*{openingTimes}"></h6>
+</div>
+
+<div class="container centered-container">
+    <div class="row center">
+        <div class="col">
+            <a type="submit" class="btn btn-primary btn-lg" aria-disabled="true" th:href="@{/thanks/{filmId}/{locationID}(filmId=${filmData.getFilmId()}, locationID=${locationData.getLocation_id()})}" th:align="center">Confirm</a>
+            <a type="submit" class="btn btn-danger btn-lg" aria-disabled="true" th:href="@{/film/{id}(id=${filmData.getFilmId()})}" th:align="center">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
