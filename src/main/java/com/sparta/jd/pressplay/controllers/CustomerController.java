@@ -56,7 +56,7 @@ public class CustomerController {
 
 
     @PostMapping("/film-search")
-    public String searchCustomer(@ModelAttribute("filmName") String filmName, Model model) {
+    public String searchFilm(@ModelAttribute("filmName") String filmName, Model model) {
         List<FilmEntity> foundFilms = new ArrayList<>();
         System.out.println(filmName);
         for (FilmEntity entity : FILM_REPOSITORY.findAll()) {
