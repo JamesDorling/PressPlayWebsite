@@ -23,6 +23,7 @@ table, th, td, tr {
     font-family: sans-serif;
     white-space: normal;
     word-break: break-word;
+    margin-bottom: 80px;
     //min-font-size: 15px;
 }
 
