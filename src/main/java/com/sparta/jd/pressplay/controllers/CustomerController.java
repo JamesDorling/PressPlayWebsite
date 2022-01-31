@@ -5,13 +5,12 @@ import com.sparta.jd.pressplay.entities.RentalEntity;
 import com.sparta.jd.pressplay.entities.ReservedEntity;
 import com.sparta.jd.pressplay.entities.StoreAddressEntity;
 import com.sparta.jd.pressplay.repositories.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +38,9 @@ public class CustomerController {
 
     @GetMapping("/error")
     public String goToErrorPage() {return "error";}
+
+    @GetMapping("/access-denied")
+    public String goToAccessDenied() {return "access-denied";}
 
     @GetMapping("/about-us")
     public String goToAboutUs(Model model) {
@@ -105,9 +107,17 @@ public class CustomerController {
 
     @GetMapping("/thanks/{filmID}/{locationID}")
     public String goToThanksPage(@PathVariable("filmID") Integer filmID, @PathVariable("locationID") Integer locationID) {
-        RESERVED_REPOSITORY.save(new ReservedEntity(locationID, filmID));
+        FilmEntity film = FILM_REPOSITORY.findById(filmID).orElseThrow(() -> new InvalidParameterException("No Film Found By ID:" + filmID));
+        RESERVED_REPOSITORY.save(new ReservedEntity(locationID, filmID, film.getTitle(), SecurityContextHolder.getContext().getAuthentication().getName()));
         return "thanks";
     }
+
+    /*
+    this.locationID = locationID;
+        this.filmID = filmID;
+        this.filmName = filmName;
+        this.customer_name = customer_name;
+     */
 
     private List<FilmEntity> removeRentedFilms(List<FilmEntity> filmEntities) {
         List<RentalEntity> reservedFilms = RENTAL_REPOSITORY.findAll();

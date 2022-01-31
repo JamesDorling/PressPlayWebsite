@@ -2,14 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Customer CRUD Application</title>
+  <title>Login</title>
   <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
 <div th:insert="fragments/header"></div>
 <form th:action="@{/login}" method="post">
-  <label>Email:  <input type="text" name="email"/></label>
-  <label>Password  <input type="password" name="password"/></label>
+  <div>
+    <label>Email:  <input type="text" name="username"/></label>
+  </div>
+  <div>
+    <label>Password:  <input type="password" name="password"/></label>
+  </div>
   <input type="submit" value="Sign in"/>
 </form>
 <div th:insert="fragments/footer"></div>

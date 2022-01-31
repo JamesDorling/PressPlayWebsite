@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<h2>Welcome to the staff room!</h2>
+<div class="accordion accordion-flush" id="staffAccordian">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Film Rental System
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#staffAccordian">
+            <div class="accordion-body">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/rent/checkout/reserved}" class="btn btn-success">Check Out Reserved</a>
+<!--                    <a type="submit" th:href="@{/rent/checkout/unreserved}" class="btn btn-primary">Check Out Unreserved</a>-->
+                    <a type="submit" th:href="@{/rent/edit}" class="btn btn-warning">Edit Existing</a>
+                    <a type="submit" th:href="@{/rent/check-in}" class="btn btn-danger">Check In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingUser">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                User
+            </button>
+        </h2>
+        <div id="collapseUser" class="accordion-collapse collapse" aria-labelledby="headingUser" data-bs-parent="#staffAccordian">
+            <div class="accordion-body">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/add/user}"  class="btn btn-success">Add</a>
+                    <a type="submit" th:href="@{/edit/user}"  class="btn btn-warning">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Customer
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#staffAccordian">
+            <div class="accordion-body">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a type="submit" th:href="@{/add/customer}"  class="btn btn-success">Add</a>
+                    <a type="submit" th:href="@{/edit/customer}"  class="btn btn-warning">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <div class="accordion-item">-->
+<!--        <h2 class="accordion-header" id="headingThree">-->
+<!--            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+<!--                Film-->
+<!--            </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">-->
+<!--            <div class="accordion-body">-->
+<!--                <div class="btn-group" role="group" aria-label="Basic mixed styles example">-->
+<!--                    <a type="submit" th:href="@{/add/film}"  class="btn btn-success">Add</a>-->
+<!--                    <a type="submit" th:href="@{/edit/film}"  class="btn btn-warning">Edit</a>-->
+<!--                    <a type="submit" th:href="@{/remove/film}"  class="btn btn-danger">Remove</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="accordion-item">-->
+<!--        <h2 class="accordion-header" id="headingFour">-->
+<!--            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">-->
+<!--                Store Locations-->
+<!--            </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">-->
+<!--            <div class="accordion-body">-->
+<!--                <div class="btn-group" role="group" aria-label="Basic mixed styles example">-->
+<!--                    <a type="submit" th:href="@{/add/store}"  class="btn btn-success">Add</a>-->
+<!--                    <a type="submit" th:href="@{/edit/store}"  class="btn btn-warning">Edit</a>-->
+<!--                    <a type="submit" th:href="@{/remove/store}"  class="btn btn-danger">Remove</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

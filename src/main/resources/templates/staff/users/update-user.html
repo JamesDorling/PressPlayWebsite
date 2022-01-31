@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Customers</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<form th:action="@{/user-updater/{id}(id=${user.getUserId()})}" th:object="${user}" method="post">
+    <H2>User ID</H2>
+    <H2 th:text="*{userId}"></H2>
+    <label>Customer ID:</label>
+    <input type="text" th:field="*{customerId}"/><br>
+    <label>Active:</label>
+    <input type="text" th:field="*{active}"/><br>
+    <label>Role:</label>
+    <input type="text" th:field="*{role}"/><br>
+    <label>Password:</label>
+    <input type="text" th:field="*{password}"/><br>
+    <button type="submit">Update</button>
+</form>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

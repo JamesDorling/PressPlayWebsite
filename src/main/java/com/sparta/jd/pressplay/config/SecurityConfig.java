@@ -25,26 +25,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user").password(encoder.encode("userpass"))
-                .authorities("CUSTOMER");
-        //auth.jdbcAuthentication()
-        //        .dataSource(datasource)
-        //        .usersByUsernameQuery("select email from customer where email=?")
-        //        .passwordEncoder(encoder);
+        auth.jdbcAuthentication()
+                .dataSource(datasource)
+                .usersByUsernameQuery("select email, password, active from users where email=?")
+                .authoritiesByUsernameQuery("select email, role from users where email=?")
+                .passwordEncoder(encoder);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                //.antMatchers("/rent/*").authenticated()
-                //.antMatchers("rent-confirmation/*/*").authenticated()
+                .antMatchers("/rent/*").authenticated()
+                .antMatchers("/rent-confirmation/*/*").authenticated()
+                .antMatchers("/staff-room").hasAuthority("ADMIN")
                 .anyRequest().permitAll()
 
                 .and().formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/", true).permitAll()
 
-                .and().exceptionHandling().accessDeniedPage("/error")
+                .and().exceptionHandling().accessDeniedPage("/access-denied")
                 .and().logout();
     }
 

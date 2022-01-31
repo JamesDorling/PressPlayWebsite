@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<h2>Select a Film</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Customer ID:</th>
+        <th>Return Date:</th>
+        <th>Staff ID:</th>
+    </tr>
+    </thead>
+    <tr th:each="rental : ${rentData}">
+        <td><form><a th:text="${rental.getCustomerId()}" th:href="@{/rent/{id}(id=${rental.getRentalId()})}"></a></form></td>
+        <td th:text="${rental.getReturnDate()}"></td>
+        <td th:text="${rental.getStaffId()}"></td>
+    </tr>
+</table>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

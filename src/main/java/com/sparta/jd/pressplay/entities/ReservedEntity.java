@@ -14,6 +14,10 @@ public class ReservedEntity {
 
     private Integer filmID;
 
+    private String filmName;
+
+    private String customer_email;
+
     public Integer getReservationID() {
         return reservationID;
     }
@@ -38,10 +42,28 @@ public class ReservedEntity {
         this.filmID = filmID;
     }
 
+    public String getFilmName() {
+        return filmName;
+    }
+
+    public void setFilmName(String filmName) {
+        this.filmName = filmName;
+    }
+
+    public String getCustomerEmail() {
+        return customer_email;
+    }
+
+    public void setCustomerEmail(String customer_name) {
+        this.customer_email = customer_name;
+    }
+
     public ReservedEntity() {}
 
-    public ReservedEntity(Integer locationID, Integer filmID) {
+    public ReservedEntity(Integer locationID, Integer filmID, String filmName, String customer_name) {
         this.locationID = locationID;
         this.filmID = filmID;
+        this.filmName = filmName;
+        this.customer_email = customer_name;
     }
 }
