@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Checkout Details</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<form th:action="@{/rent/checkout/confirmation}" th:object="${form}" method="post">
+    <H2>Rental Form:</H2>
+    <label>Customer ID:</label>
+    <input type="text" th:field="*{customerId}"/><br>
+    <label>Days to be Rented:</label>
+    <input type="text" th:field="*{daysToBeRented}"/><br>
+    <label>Staff ID:</label>
+    <input type="text" th:field="*{staffId}"/><br>
+    <button type="submit">Update</button>
+</form>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

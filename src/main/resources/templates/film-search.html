@@ -1,0 +1,29 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<h2>Search Results</h2>
+<table>
+    <col span="1" class="column-one"    style="min-width: 300px; max-width: 40%">
+    <col span="1" class="column-two"    style="min-width: 25px; max-width: 50%">
+    <col span="1" class="column-fourth" style="min-width: 5px; max-width: 2%">
+    <col span="1" class="column-fifth"  style="min-width: 5px; max-width: 2%">
+    <thead>
+    <tr>
+        <th>Film Name:</th>
+        <th>Description</th>
+        <th>Rating</th>
+    </tr>
+    </thead>
+    <tr th:each="film : ${searchResults}">
+        <td><form><a th:text="${film.getTitle()}" th:href="@{/film/{id}(id=${film.getFilmId()})}"></a></form></td>
+        <td th:text="${film.getDisplayDescription()}"></td>
+        <td th:text="${film.getRating()}"></td>
+    </tr>
+</table>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

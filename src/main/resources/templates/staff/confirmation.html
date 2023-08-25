@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmed!</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<h1>Success!</h1>
+<h2>Operation Successful.</h2>
+<div class="container centered-container">
+    <div class="row center">
+        <div class="col">
+            <a type="submit" class="btn btn-primary btn-lg" aria-disabled="true" th:href="@{/staff-room}" th:align="center">Back to Staff Room</a>
+        </div>
+    </div>
+</div>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>

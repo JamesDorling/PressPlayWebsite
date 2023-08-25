@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent Checkout Reservation</title>
+</head>
+<body>
+<div th:insert="fragments/header"></div>
+<h2>Select a Film</h2>
+<table>
+  <col span="1" class="column-one"    style="min-width: 300px; max-width: 40%">
+  <col span="1" class="column-two"    style="min-width: 25px; max-width: 50%">
+  <col span="1" class="column-fourth" style="min-width: 5px; max-width: 2%">
+  <thead>
+  <tr>
+    <th>Film Name</th>
+    <th>Reserver Email</th>
+  </tr>
+  </thead>
+  <tr th:each="reservation : ${filmsData}">
+    <td><form><a th:text="${reservation.getFilmName()}" th:href="@{/rent/checkout/confirm}"></a></form></td>
+    <td th:text="${reservation.getCustomerEmail()}"></td>
+  </tr>
+</table>
+<div th:insert="fragments/footer"></div>
+</body>
+</html>
